@@ -102,3 +102,8 @@ dist
 
 # TernJS port file
 .tern-port
+
+## Added by Ashley on 9/26/20
+
+# Secret keys
+.env
