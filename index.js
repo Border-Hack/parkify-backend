@@ -19,13 +19,6 @@ if (!config.get("myprivatekey")) {
   process.exit(1);
 }
 
-//connect to mongodb
-// mongoose
-//   .connect("mongodb://localhost/nodejsauth", { useNewUrlParser: true })
-//   .then(() => console.log("Connected to MongoDB..."))
-//   .catch(err => console.error("Could not connect to MongoDB..."));
-
-
 app.use(express.json());
 //use users route for api/users
 app.use("/api/users", usersRoute);

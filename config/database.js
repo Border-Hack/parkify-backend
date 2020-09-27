@@ -8,6 +8,7 @@ const connectDB = async() => {
 			useNewUrlParser: true,
 			useUnifiedTopology: true,
 			useFindAndModify: false,
+			useCreateIndex: true
 		});
 	       console.info("Mongo is now connected to", process.env.MONGO_URI);
 	} catch (error) {

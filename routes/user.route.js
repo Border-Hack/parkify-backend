@@ -1,15 +1,12 @@
 // routes/users.route.js
 
-const auth = require("../middleware/auth");
+const express = require("express");
 const bcrypt = require("bcrypt");
-const { User, validate } = require("../models/user.model");
 const router = express.Router();
 
-// Add the additional constants we added to index.js
-const dotenv = require("dotenv");
-const connectDB = require("./config/database");
+const auth = require("../middleware/auth");
+const { User, validate } = require("../models/user.model");
 
-const express = require("express");
 
 router.get("/current", auth, async (req, res) => {
   const user = await User.findById(req.user._id).select("-password");
@@ -17,9 +14,6 @@ router.get("/current", auth, async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  // validate the request body first
-  const { error } = validate(req.body);
-  if (error) return res.status(400).send(error.details[0].message);
 
   //find an existing user
   let user = await User.findOne({ email: req.body.email });
